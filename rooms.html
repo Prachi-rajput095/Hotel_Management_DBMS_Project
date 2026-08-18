@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Rooms</h2>
+<div class="card p-4 mb-4">
+<h5>Add Room</h5>
+<form method="post" action="/rooms/add" class="row g-2">
+<input class="form-control" name="room_number" placeholder="Room number" required>
+<select class="form-select" name="room_type"><option>Single</option><option>Double</option><option>Deluxe</option><option>Suite</option></select>
+<input class="form-control" name="price_per_night" type="number" placeholder="Price" required>
+<button class="btn btn-primary">Add Room</button>
+</form>
+</div>
+<table class="table table-bordered">
+<tr><th>ID</th><th>Room</th><th>Type</th><th>Price/Night</th><th>Status</th></tr>
+{% for r in rooms %}
+<tr><td>{{r.room_id}}</td><td>{{r.room_number}}</td><td>{{r.room_type}}</td><td>₹{{r.price_per_night}}</td><td>{{r.status}}</td></tr>
+{% endfor %}
+</table>
+{% endblock %}

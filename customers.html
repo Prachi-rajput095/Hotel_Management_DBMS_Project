@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Customers</h2>
+<div class="card p-4 mb-4">
+<h5>Add Customer</h5>
+<form method="post" action="/customers/add" class="row g-2">
+<input class="form-control col" name="customer_name" placeholder="Name" required>
+<input class="form-control col" name="phone" placeholder="Phone" required>
+<input class="form-control col" name="email" placeholder="Email">
+<input class="form-control col" name="address" placeholder="Address">
+<button class="btn btn-primary">Add</button>
+</form>
+</div>
+<table class="table table-bordered">
+<tr><th>ID</th><th>Name</th><th>Phone</th><th>Email</th><th>Address</th><th>Action</th></tr>
+{% for c in customers %}
+<tr><td>{{c.customer_id}}</td><td>{{c.customer_name}}</td><td>{{c.phone}}</td><td>{{c.email}}</td><td>{{c.address}}</td>
+<td><form method="post" action="/customers/delete/{{c.customer_id}}"><button class="btn btn-sm btn-danger">Delete</button></form></td></tr>
+{% endfor %}
+</table>
+{% endblock %}

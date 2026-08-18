@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Dashboard</h2><p class="text-muted">Hotel Management System</p>
+<div class="row g-4">
+<div class="col-md-3"><div class="card p-4"><h6>Customers</h6><h2>{{ customers }}</h2></div></div>
+<div class="col-md-3"><div class="card p-4"><h6>Rooms</h6><h2>{{ rooms }}</h2></div></div>
+<div class="col-md-3"><div class="card p-4"><h6>Bookings</h6><h2>{{ bookings }}</h2></div></div>
+<div class="col-md-3"><div class="card p-4"><h6>Revenue</h6><h2>₹{{ revenue }}</h2></div></div>
+</div>
+<div class="card p-4 mt-4">
+<h4>Project Features</h4>
+<ul>
+<li>Customer and room CRUD</li><li>Booking management</li><li>SQL JOIN reports</li>
+<li>Automatic room-status trigger</li><li>Payment tracking</li>
+</ul>
+</div>
+{% endblock %}

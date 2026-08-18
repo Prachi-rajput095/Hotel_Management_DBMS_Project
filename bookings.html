@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex justify-content-between"><h2>Bookings</h2><a class="btn btn-primary" href="/new-booking">New Booking</a></div>
+<p class="text-muted">This page demonstrates an SQL JOIN between bookings, customers and rooms.</p>
+<table class="table table-bordered">
+<tr><th>ID</th><th>Customer</th><th>Room</th><th>Type</th><th>Check In</th><th>Check Out</th><th>Status</th></tr>
+{% for b in bookings %}
+<tr><td>{{b.booking_id}}</td><td>{{b.customer_name}}</td><td>{{b.room_number}}</td><td>{{b.room_type}}</td><td>{{b.check_in}}</td><td>{{b.check_out}}</td><td>{{b.status}}</td></tr>
+{% endfor %}
+</table>
+{% endblock %}

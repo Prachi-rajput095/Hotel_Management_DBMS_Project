@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Reports</h2>
+<h5 class="mt-4">Booking Report - JOIN</h5>
+<table class="table table-bordered">
+<tr><th>Customer</th><th>Room</th><th>Type</th><th>Check In</th><th>Check Out</th><th>Status</th></tr>
+{% for x in booking_report %}
+<tr><td>{{x.customer_name}}</td><td>{{x.room_number}}</td><td>{{x.room_type}}</td><td>{{x.check_in}}</td><td>{{x.check_out}}</td><td>{{x.status}}</td></tr>
+{% endfor %}
+</table>
+<h5 class="mt-4">Room Type Report - GROUP BY + LEFT JOIN</h5>
+<table class="table table-bordered">
+<tr><th>Room Type</th><th>Bookings</th><th>Revenue</th></tr>
+{% for x in room_report %}
+<tr><td>{{x.room_type}}</td><td>{{x.bookings_count}}</td><td>₹{{x.revenue}}</td></tr>
+{% endfor %}
+</table>
+{% endblock %}
