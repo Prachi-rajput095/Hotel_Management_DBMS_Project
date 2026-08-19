@@ -16,7 +16,7 @@ def get_db():
 @app.route("/")
 def dashboard():
     conn = get_db()
-    cur = conn.cursor(dictionary=True)
+    cur = conn.cursor()
     cur.execute("SELECT COUNT(*) AS total FROM customers")
     customers = cur.fetchone()["total"]
     cur.execute("SELECT COUNT(*) AS total FROM rooms")
