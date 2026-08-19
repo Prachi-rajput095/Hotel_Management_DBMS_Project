@@ -1,20 +1,17 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-import mysql.connector
-from mysql.connector import Error
+import os
+import psycopg2
+from psycopg2.extras import RealDictCursor
 from decimal import Decimal
 
 app = Flask(__name__)
 app.secret_key = "hotel-project-secret-key"
 
-DB_CONFIG = {
-    "host": "localhost",
-    "user": "root",
-    "password": "Gone@0595",
-    "database": "hotel_management"
-}
-
 def get_db():
-    return mysql.connector.connect(**DB_CONFIG)
+    return psycopg2.connect(
+        os.environ.get("DATABASE_URL"),
+        cursor_factory=RealDictCursor
+    )
 
 @app.route("/")
 def dashboard():
