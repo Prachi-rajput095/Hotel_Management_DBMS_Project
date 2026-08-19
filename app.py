@@ -33,7 +33,7 @@ def dashboard():
 @app.route("/customers")
 def customers():
     conn = get_db()
-   cur = conn.cursor()
+    cur = conn.cursor()
     cur.execute("SELECT * FROM customers ORDER BY customer_id DESC")
     rows = cur.fetchall()
     cur.close(); conn.close()
@@ -70,7 +70,7 @@ def delete_customer(id):
 @app.route("/rooms")
 def rooms():
     conn = get_db()
-     cur = conn.cursor()
+    cur = conn.cursor()
     cur.execute("SELECT * FROM rooms ORDER BY room_number")
     rows = cur.fetchall()
     cur.close(); conn.close()
@@ -139,7 +139,7 @@ def new_booking():
 @app.route("/payments")
 def payments():
     conn = get_db()
-     cur = conn.cursor()
+    cur = conn.cursor()
     cur.execute("""
         SELECT p.payment_id, c.customer_name, p.booking_id, p.amount,
                p.payment_date, p.payment_method
@@ -169,7 +169,7 @@ def add_payment():
 @app.route("/reports")
 def reports():
     conn = get_db()
-     cur = conn.cursor()
+    cur = conn.cursor()
     cur.execute("""
         SELECT c.customer_name, r.room_number, r.room_type,
                b.check_in, b.check_out, b.status
